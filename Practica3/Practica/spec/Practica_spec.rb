@@ -13,6 +13,7 @@ describe "Practica" do
     #Practica nueva
     @node = Node.new(@Menu)
     @lista = Lista.new()
+    @lista.push_start(@node)
   end
   
   describe "Node" do
@@ -27,10 +28,13 @@ describe "Practica" do
   
   describe "Lista simplemente enlazada" do
     it "Debe de tener un HEAD" do
-      
+      expect(@lista.Head_).not_to be nil
+    end
+    it "Debe de tener un Data_ (Head_)" do
+      expect(@lista.Head_.Data_).not_to be nil
     end
     it "debe de tener una cantidad de elementos" do
-      
+      expect(@lista.Size_).not_to be nil
     end
     
     it "Se debe de poder añadir un elemento por el final" do
@@ -38,7 +42,8 @@ describe "Practica" do
     end
     
     it "Se debe de poder añadir un elemento por el principio" do
-      
+      @lista.push_start(@node)
+      expect(@lista.Size_).to eq(2)
     end
     
     it "Se debe de poder sustraer un elemento del principio" do
