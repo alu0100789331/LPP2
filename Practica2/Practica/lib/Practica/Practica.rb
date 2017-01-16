@@ -13,6 +13,18 @@ class Plato
            "Error en el constructor"
         end        
     end
+    
+    def get_name()
+        @Name_
+    end
+    
+    def get_Slice()
+        @Slice_
+    end
+    
+    def get_Vol()
+        @Vol_
+    end
 end
 
 
