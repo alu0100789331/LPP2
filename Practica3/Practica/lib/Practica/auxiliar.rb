@@ -1,14 +1,14 @@
 class Plato
     attr_accessor :Name_, :Slice_, :Vol_, :Fat_, :Protein_, :Hydrates_
     def initialize(*args)
-        if(args.count()==0)                     #constructor sobrecargado
+        if(args.count()==0)
             @Name_="Plato Vacio"
             @Slice_ = 0
             @Vol_ = 0
             @Fat_ = 0
             @Protein_ = 0
             @Hydrates_ = 0
-        elsif(args.count()==6)                  #constructor sobrecargado
+        elsif(args.count()==6)
             @Name_ = args[0]
             @Slice_ = args[1]
             @Vol_ = args[2]
@@ -20,19 +20,19 @@ class Plato
         end        
     end
     
-    def get_name                                #devuelve el nombre
+    def get_name
         @Name_
     end
     
-    def get_Slice                               #devuelve la porcion recomendada
+    def get_Slice
         @Slice_
     end
     
-    def get_Vol                                 #devuelve la ingesta
+    def get_Vol
         @Vol_
     end
     
-    def mostrar                                 #muestra
+    def mostrar
        print @Name_, ", ",@Slice_,", ",@Vol_ 
        puts
     end
@@ -42,7 +42,7 @@ end
 class Menu
     attr_accessor :Name_, :Platos_, :Total_protein_, :Total_hydrate_, :Total_fat_, :Total_VCT_
     def initialize(*args)
-        if(args.count()==0)                             #constructor sobrecargado
+        if(args.count()==0)
             @Name_ = "Menu Vacio"
             @Platos_ = []
             
@@ -50,7 +50,7 @@ class Menu
             @Total_hydrate_ = 0
             @Total_protein_ = 0
             @Total_VCT_ = 0
-        elsif(args.count()==2)                          #constructor sobrecargado
+        elsif(args.count()==2)
             @Name_ = args[0]
             @Platos_ = args[1]
             
@@ -83,10 +83,10 @@ class Menu
        end
     end
     
-    def mostrar                         #muestra el menu
+    def mostrar
        puts                             #limpiar muestraje
        puts @Name_
-       @Platos_.each do |plato|         #mejor que el "for"
+       @Platos_.each do |plato|
           plato.mostrar 
        end
        print "V.C.T  | %   ", @Total_VCT_," | ",@Total_fat_," ",@Total_protein_," ",@Total_hydrate_
