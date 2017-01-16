@@ -1,3 +1,4 @@
+
 require "spec_helper"
 
 
@@ -33,6 +34,9 @@ describe "Practica" do
     it "Se puede obtener la ingesta en gramos" do
       expect(@Plato.get_Vol()).to eq("200 gr")
     end
+    it "Se puede mostrar el plato" do
+      expect(@Plato.mostrar()).to eq(nil)
+    end
   end
   
   describe "Menu" do
@@ -50,6 +54,16 @@ describe "Practica" do
     
     it "Se puede obtener el nombre del Menu" do
       expect(@Menu.Name_).to eq("Menu Vacio")
+    end
+    
+    it "Se espera que los porcentajes sumen todos 100" do
+      @aux = Menu.new("Almuerzo",[@Plato,@Plato1,@Plato2,@Plato3,@Plato4])
+      expect(@aux.comprobar()).to eq(true)
+    end
+    
+    it "Se puede mostrar el Menu" do
+      @aux = Menu.new("Almuerzo",[@Plato,@Plato1,@Plato2,@Plato3,@Plato4])
+      expect(@aux.mostrar()).to eq(nil)
     end
   end
 end

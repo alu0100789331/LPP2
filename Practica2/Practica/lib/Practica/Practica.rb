@@ -20,16 +20,21 @@ class Plato
         end        
     end
     
-    def get_name()
+    def get_name
         @Name_
     end
     
-    def get_Slice()
+    def get_Slice
         @Slice_
     end
     
-    def get_Vol()
+    def get_Vol
         @Vol_
+    end
+    
+    def mostrar
+       print @Name_, ", ",@Slice_,", ",@Vol_ 
+       puts
     end
 end
 
@@ -63,14 +68,29 @@ class Menu
             @Total_VCT_ = (@Total_fat_ + @Total_hydrate_ + @Total_protein_)                                  #Calculamos el total de todo
             
             @Total_fat_ = (@Total_fat_/@Total_VCT_).to_f*100
-            @Total_hydrate_ = (@Total_hydrate_/@Total_VCT_)*100
-            @Total_protein_ = (@Total_protein_/@Total_VCT_)*100
-            
-            puts @Total_fat_
-
+            @Total_hydrate_ = (@Total_hydrate_/@Total_VCT_).to_f*100
+            @Total_protein_ = (@Total_protein_/@Total_VCT_).to_f*100
         else
            "Error en el constructor"
         end
+    end
+    
+    def comprobar                                                   #comprueba si los porcentajes son correctos
+       if (@Total_fat_ + @Total_hydrate_ + @Total_protein_) ==100   #solo sera true si el constructor ha sido con parametros
+           return true
+       else
+           return false
+       end
+    end
+    
+    def mostrar
+       puts                             #limpiar muestraje
+       puts @Name_
+       @Platos_.each do |plato|
+          plato.mostrar 
+       end
+       print "V.C.T  | %   ", @Total_VCT_," | ",@Total_fat_," ",@Total_protein_," ",@Total_hydrate_
+       puts
     end
     
     
