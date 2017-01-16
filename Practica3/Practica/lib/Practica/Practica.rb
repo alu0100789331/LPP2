@@ -22,6 +22,14 @@ class Lista
       @Size_ = 0
    end
    
+   def each
+       aux = @Head_
+       if aux != nil
+           yield aux
+           aux = aux.Next_
+       end
+   end
+   
    def push_start(aux)                          #push start
     if @Head_==nil                              #si es el 1 nodo de la lista
         aux.Next_ = nil

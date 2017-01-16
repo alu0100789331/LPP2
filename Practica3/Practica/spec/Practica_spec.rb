@@ -37,13 +37,24 @@ describe "Practica" do
       expect(@lista.Size_).not_to be nil
     end
     
-    it "Se debe de poder añadir un elemento por el final" do
-      
-    end
-    
     it "Se debe de poder añadir un elemento por el principio" do
       @lista.push_start(@node)
       expect(@lista.Size_).to eq(2)
+    end
+    
+    it "Se pueden recorrer todos los elementos de la lista (con el each sobrecargado)" do
+      @aux = @Head_
+      while(@aux.Next_ != nil)
+        puts @aux.Data_.Name_
+        @aux = @aux.Next_
+      end
+      
+     # @lista.each do |elem_lista|
+      #  puts elem_lista.Data_.Name_
+      #end
+    end
+    it "Se debe de poder añadir un elemento por el final" do
+      
     end
     
     it "Se debe de poder sustraer un elemento del principio" do
